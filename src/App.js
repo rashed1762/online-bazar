@@ -2,15 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Navcomp from './pages/Shared/Navcomp';
+import Homecomp from './pages/Home/Homecomp';
+import Aboutcomp from './pages/About/Aboutcomp';
+import Contactcomp from './pages/Contact/Contactcomp';
+import Logincomp from './pages/Login/Logincomp';
+import Offercomp from './pages/Offer/Offercomp';
 
 function App() {
   return (
     <div >
       <Navcomp></Navcomp>
       <Routes>
-        <Route>
-
-        </Route>
+        <Route path='/' element={<Homecomp></Homecomp>}></Route>
+        <Route path='/about' element={<Aboutcomp></Aboutcomp>}></Route>
+        <Route path='/contact' element={<Contactcomp></Contactcomp>}></Route>
+        <Route path='/login' element={<Logincomp></Logincomp>}></Route>
+        <Route path='/offer' element={<Offercomp></Offercomp>}></Route>
       </Routes>
 
     </div>

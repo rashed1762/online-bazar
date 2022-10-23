@@ -1,6 +1,44 @@
 .search{
-    width: 820px;
+    width: 920px;
+    
 }
+.navicon{
+    padding: 10px 10px;
+    height: 22px;
+}
+
+
 .logo{
     height: 60px;
+}
+.offer:hover{
+    background-color: black;
+    transition: .9s;
+}
+
+.cat{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.secondnav{
+    border-bottom: 5px solid rgb(9, 92, 247);
+}
+
+.firstnav{
+    margin: 10px 10px;
+}
+
+@media screen and (max-width:768px) {
+    .search{
+        width: 120px;
+        
+    }
+    
+    
+    .last{
+        background-color: blue;
+        margin-right: auto;
+    }
+    
 }
