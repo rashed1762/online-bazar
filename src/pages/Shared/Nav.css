@@ -11,6 +11,10 @@
 .logo{
     height: 60px;
 }
+.logofooter{
+    height: 130px;
+}
+
 .offer:hover{
     background-color: black;
     transition: .9s;
@@ -28,17 +32,29 @@
 .firstnav{
     margin: 10px 10px;
 }
-
-@media screen and (max-width:768px) {
-    .search{
-        width: 120px;
-        
-    }
-    
-    
-    .last{
-        background-color: blue;
-        margin-right: auto;
-    }
+.slick-arrow{
+    background-color: brown;
+}
+.slick-prev{
+    z-index: 100;
+    left: 20px !important;
+    color: brown;
+}
+.slick-next{
+    z-index: 100;
+    right: 20px !important;
+    color: brown;
+}
+.cardslider{
+    background-color: rgb(42, 248, 248);
+    height: 110px;
+    width: 100px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     
 }
+.slider{
+    background-color: rgb(71, 150, 240);padding-left: 30px;
+    
+}
+

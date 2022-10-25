@@ -1,8 +1,12 @@
 import React from 'react'
+import Responsive from '../Shared/Slidercard';
+import Slidercard from '../Shared/Slidercard';
 
 const Contactcomp = () => {
   return (
-    <div>Contactcomp</div>
+    <div>
+      <Slidercard></Slidercard>
+    </div>
   )
 }
 

@@ -1,0 +1,13 @@
+.input{
+    width: 400px;
+}
+.textarea{
+    width: 400px;
+    height: 150px;
+}
+.submitbtn{
+    width: 110px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+}

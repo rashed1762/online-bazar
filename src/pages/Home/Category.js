@@ -17,7 +17,7 @@ const Category = () => {
                     return(
                         <div>
                             <div className="card crdstyle card-side bg-base-100 shadow-xl">
-  <figure><img src={img} alt="Movie"/></figure>
+  <figure><img  src={img} alt="Movie"/></figure>
   <div className="card-body">
     <p className="card-title">{title}</p>
     
