@@ -17,7 +17,7 @@ const Navcomp = () => {
       </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
       <NavLink to="/login" as={Link}><FontAwesomeIcon className='navicon1' icon={faUser} /> Login</NavLink>
-      <NavLink to="/login" as={Link}><FontAwesomeIcon className='navicon1' icon={faShoppingCart} /> cart</NavLink>
+      <NavLink to="/cart" as={Link}><FontAwesomeIcon className='navicon1' icon={faShoppingCart} /> cart</NavLink>
       
         
       </ul>
@@ -31,7 +31,7 @@ const Navcomp = () => {
   <div className="navbar-end hidden lg:flex">
     <ul className="menu firstnav menu-horizontal p-0">
     <NavLink to="/login" as={Link}><FontAwesomeIcon className='navicon' icon={faUser} /> </NavLink>
-      <NavLink to="/login" as={Link}>
+      <NavLink to="/cart" as={Link}>
       <label tabIndex={0} className="btn btn-ghost btn-circle">
         <div className="indicator">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
@@ -53,7 +53,7 @@ const Navcomp = () => {
   <NavLink to="/about" as={Link}><li><a>About</a></li></NavLink>
   <NavLink to="/shop" as={Link}><li><a>Shop</a></li></NavLink>
   <NavLink to="/contact" as={Link}><li><a>Contact</a></li></NavLink>
-  <NavLink to="/add" as={Link}><li><a>add product</a></li></NavLink>
+  <NavLink to="/dashboard" as={Link}><li><a>Admin Dashboard</a></li></NavLink>
   
   <div className="avatar online placeholder">
   <div className="bg-error  offer text-neutral-content rounded-full w-12">

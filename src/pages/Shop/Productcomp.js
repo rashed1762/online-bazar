@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import Filter from './Filter';
 import Productdetails from './Productdetails';
+import { useCart } from 'react-use-cart';
+import Cartcomp from '../../Cart/Cartcomp';
 
 const Productcomp = () => {
+  const { addItem } = useCart();
   const [prodetails,setProdetails]=useState(null);
     const [products,setProducts]=useState([]);
 
@@ -36,7 +39,7 @@ const Productcomp = () => {
     <p>${price}</p>
     <div className="btn-group btn-group-vertical lg:btn-group-horizontal">
     <div className="tooltip " data-tip="ADD TO CART">
-  <button className="btn iconbtn btn btn-outline btn-success"><FontAwesomeIcon className='carticon' icon={faShoppingCart} /></button>
+  <button onClick={()=>addItem(productvalue._id)} className="btn iconbtn btn btn-outline btn-success"><FontAwesomeIcon className='carticon' icon={faShoppingCart} /></button>
 </div>
 <div className="tooltip" data-tip="SEE DETAILS">
  
@@ -48,7 +51,7 @@ const Productcomp = () => {
             )
         })
       }
-
+      {addItem && <Cartcomp ></Cartcomp>}
       {prodetails && <Productdetails prodetails={prodetails}></Productdetails>}
       </div>
       <div>

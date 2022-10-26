@@ -19,11 +19,11 @@ const AddProductcomp = () => {
         console.log(result)
     )};
   return (
-    <div className='bg-accent h-140'>
+    <div className='body '>
 
     
-    <div>
-    <form className='text-center pt-28' onSubmit={handleSubmit(onSubmit)}>
+    <div >
+    <form className='text-center p-5 ' onSubmit={handleSubmit(onSubmit)}>
       <label className='font-bold text-1xl' htmlFor="">Title</label>
       <br />
       <input placeholder='title' type="text" className='input' {...register("name", { required: true, maxLength: 20 })} />
@@ -38,7 +38,7 @@ const AddProductcomp = () => {
       <br /><br />
       <label className='font-bold text-1xl' htmlFor="">category</label>
       <br />
-      <input className='input' placeholder='photo' type="text" {...register("category", )} />
+      <input className='input' placeholder='Category' type="text" {...register("category", )} />
       <br /><br />
       <label className='font-bold text-1xl' htmlFor="">image</label>
       <br />
