@@ -7,16 +7,20 @@ import Filter from './Filter';
 import Productdetails from './Productdetails';
 import { useCart } from 'react-use-cart';
 import Cartcomp from '../../Cart/Cartcomp';
+import Fotter from '../Shared/Fotter';
 
 const Productcomp = () => {
-  const { addItem } = useCart();
   const [prodetails,setProdetails]=useState(null);
     const [products,setProducts]=useState([]);
+      
+
+
 
     useEffect(()=>{
       fetch('http://localhost:4000/products')
       .then(res=>res.json())
       .then(data=>setProducts(data));
+
   },[]);
   return (
     <div>
@@ -29,17 +33,19 @@ const Productcomp = () => {
          
       {
       products.map(productvalue=>{
+        <Cartcomp
+        productvalue={productvalue}
+        ></Cartcomp>
             const {img,name,price}=productvalue;
-            console.log(productvalue);
             return(
                 <div className="card productcrd w-96 bg-base-100 shadow-xl">
-  <figure><img src={img} alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="text-1xl font-bold">{name}</h2>
+  <figure><img className='crdimg' src={img} alt="Shoes" /></figure>
+  <div className="card-body ">
+    <h2 className="text-1xl shoptitle font-bold">{name}</h2>
     <p>${price}</p>
     <div className="btn-group btn-group-vertical lg:btn-group-horizontal">
     <div className="tooltip " data-tip="ADD TO CART">
-  <button onClick={()=>addItem(productvalue._id)} className="btn iconbtn btn btn-outline btn-success"><FontAwesomeIcon className='carticon' icon={faShoppingCart} /></button>
+  {/* <button onSubmit={handleBooking} className="btn iconbtn btn btn-outline btn-success"><FontAwesomeIcon className='carticon' icon={faShoppingCart} /></button> */}
 </div>
 <div className="tooltip" data-tip="SEE DETAILS">
  
@@ -51,12 +57,15 @@ const Productcomp = () => {
             )
         })
       }
-      {addItem && <Cartcomp ></Cartcomp>}
       {prodetails && <Productdetails prodetails={prodetails}></Productdetails>}
       </div>
       <div>
         
       </div>
+      <div className='mt-28'>
+      <Fotter></Fotter>
+      </div>
+      
     </div>
   )
 }

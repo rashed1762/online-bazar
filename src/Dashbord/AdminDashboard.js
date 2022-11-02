@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom';
+import Fotter from '../pages/Shared/Fotter';
 
 const AdminDashboard = () => {
   return (
@@ -21,6 +22,9 @@ const AdminDashboard = () => {
     </ul>
   
   </div>
+</div>
+<div>
+  <Fotter></Fotter>
 </div>
     </div>
   )

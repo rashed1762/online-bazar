@@ -1,3 +1,8 @@
+.iconhome{
+    font-size: 30px;
+    position: sticky;
+
+}
 .carousel{
     height: 500px;
     box-shadow: 10px 10px 20px rgb(245, 187, 187);
@@ -34,7 +39,7 @@
 }
 .offercrd{
     width: 100%;
-    height: 230px;
+    height: 270px;
 }
 .details{
     font-size: 30px;
@@ -66,5 +71,34 @@
 }
 
 @media screen and (max-width:769px) {
-    
+    .cattitle{
+        font-size: 10px;
+    }
+    .catimg{
+        height: 20px;
+        width: 30px;
+    }
+    .procrd{
+        width: 100px;
+        height: 250px;
+    }
+    .protitle{
+        font-size: 10px;
+    }
+    .details{
+        font-size: 20px;
+    }
+    .prodetails{
+        flex-direction: column;
+    }
+    .bannerpartp{
+        display: none;
+    }
+    .downloadbtn{
+        display: none;
+    }
+    .discountcrd{
+        width: 100px;
+        height: 250px;
+    }
 }

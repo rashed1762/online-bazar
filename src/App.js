@@ -12,6 +12,8 @@ import Cartcomp from './Cart/Cartcomp';
 import AdminDashboard from './Dashbord/AdminDashboard';
 import Alluser from './Dashbord/Alluser';
 import Register from './pages/Login/Register';
+import RequireAuth from './pages/Login/RequireAuth';
+import Prodetails from './pages/Home/Prodetails';
 
 function App() {
   return (
@@ -19,8 +21,16 @@ function App() {
       <Navcomp></Navcomp>
       <Routes>
         <Route path='/' element={<Homecomp></Homecomp>}></Route>
+        <Route path='/:productId' element={<Prodetails></Prodetails>}></Route>
+        <Route path='/home' element={<Homecomp></Homecomp>}></Route>
+        <Route path='/home/:productId' element={<Prodetails></Prodetails>}></Route>
         <Route path='/about' element={<Aboutcomp></Aboutcomp>}></Route>
-        <Route path='/shop' element={<Shopcomp></Shopcomp>}></Route>
+        <Route path='/shop' element={
+          <RequireAuth>
+            <Shopcomp></Shopcomp>
+          </RequireAuth>
+        }></Route>
+        <Route path='/shop/:productId'></Route>
         <Route path='/contact' element={<Contactcomp></Contactcomp>}></Route>
         <Route path='/dashboard' element={<AdminDashboard></AdminDashboard>}>
         <Route path='user' element={<Alluser></Alluser>}></Route>
@@ -31,6 +41,7 @@ function App() {
         <Route path='/login' element={<Logincomp></Logincomp>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/cart' element={<Cartcomp></Cartcomp>}></Route>
+        
         <Route path='/offer' element={<Offercomp></Offercomp>}></Route>
         
       </Routes>

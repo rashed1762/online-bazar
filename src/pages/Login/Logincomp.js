@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './login.css'
 import {useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 const Logincomp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -16,10 +17,32 @@ const Logincomp = () => {
     loading,
     error,
 ] = useSignInWithEmailAndPassword(auth);
+const [token]=useToken(user || gUser)
+const navigate = useNavigate();
+const location = useLocation();
+let from = location.state?.from?.pathname || "/";
+let signInError;
 
+
+useEffect(()=>{
+  if( token){
+    navigate(from, { replace: true });
+  
+  }
+},[token,from,navigate])
+
+
+if (loading || gLoading) {
+  return <button className="btn loading">loading</button>
+}
+if(error || gError){
+  signInError= <p className='text-red'><small>{error?.message || gError?.message }</small></p>
+}
 
   const onSubmit=data=>{
     signInWithEmailAndPassword(data.email, data.password);
+  
+   
   }
   return (
     <div className='login h-screen'>
@@ -31,7 +54,7 @@ const Logincomp = () => {
   <div className="card-body">
   <div className="form-control w-full max-w-xs">
   <label className="label">
-    <span className="label-text">Email</span>
+    <span className="label-text"><span className='font-bold'>Email</span></span>
   </label>
   <input
    type="email"
@@ -56,7 +79,7 @@ const Logincomp = () => {
 </div>
 <div className="form-control w-full max-w-xs">
   <label className="label">
-    <span className="label-text">Password</span>
+    <span className="label-text"><span className='font-bold'>Password</span></span>
   </label>
   <input
   
@@ -82,14 +105,16 @@ const Logincomp = () => {
          {errors.password?.type === 'minLength' && <span >{errors.password.message}</span>}</label>
 </div>
   </div>
+  {signInError}
+  <input className='btn  btn-accent loginbtn' type="submit" value="Login" />
   </form>
-  <input className='btn btn-info w-100' type="submit" value="Login" />
-  <small> <p className='mt-3 '>New to TeleHealth? <Link to="/register">Create New Account</Link></p></small>
+ 
+  <small> <p className='mt-3 '>New to TeleHealth? <Link to="/register"><span className=' text-blue-700 font-bold'>Create New Account</span> </Link></p></small>
   <div className="flex flex-col w-full border-opacity-50">
 
   <div className="divider">OR</div>
 </div>
-  <button onClick={()=>signInWithGoogle()} className="btn btn-secondary">login</button>
+  <button onClick={()=>signInWithGoogle()} className="btn btn-secondary">Continue With GooGle  </button>
  
 </div>
 

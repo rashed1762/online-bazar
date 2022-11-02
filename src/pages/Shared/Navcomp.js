@@ -4,8 +4,16 @@ import img1 from '../../assests/istockphoto-962574306-612x612-removebg-preview.p
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Link, NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Navcomp = () => {
+  const [user] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+    localStorage.removeItem('accessToken');
+};
   return (
     <div>
 
@@ -16,7 +24,10 @@ const Navcomp = () => {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-      <NavLink to="/login" as={Link}><FontAwesomeIcon className='navicon1' icon={faUser} /> Login</NavLink>
+      {
+              user?  <button className="btn btn-primary" onClick={logout} >Sign Out</button> :
+                 <NavLink className="navstyle" to="/login" as={Link}> <FontAwesomeIcon className='navicon' icon={faUser} /></NavLink> 
+            }
       <NavLink to="/cart" as={Link}><FontAwesomeIcon className='navicon1' icon={faShoppingCart} /> cart</NavLink>
       
         
@@ -24,13 +35,19 @@ const Navcomp = () => {
     </div>
     
 
-    <a className="btn btn-ghost normal-case text-xl"><img className='logo' src={img1} alt="" /><span>Online Bazar</span></a>
+    <a className="btn btn-ghost normal-case text-xl"><img className='logo' src={img1} alt="" />
+    
+    <span className='logoinfo'>Online <br /> Bazar</span></a>
   </div>
   <input type="text" placeholder="Type here" className="input search mx-auto input-bordered " />
   <button className="btn btn-outline btn-secondary">search</button>
   <div className="navbar-end hidden lg:flex">
     <ul className="menu firstnav menu-horizontal p-0">
-    <NavLink to="/login" as={Link}><FontAwesomeIcon className='navicon' icon={faUser} /> </NavLink>
+    {
+              user?  <button className="btn btn-primary" onClick={logout} >Sign Out</button> :
+                 <NavLink className="navstyle" to="/login" as={Link}> <FontAwesomeIcon className='navicon' icon={faUser} /></NavLink> 
+            }
+   
       <NavLink to="/cart" as={Link}>
       <label tabIndex={0} className="btn btn-ghost btn-circle">
         <div className="indicator">
@@ -53,7 +70,10 @@ const Navcomp = () => {
   <NavLink to="/about" as={Link}><li><a>About</a></li></NavLink>
   <NavLink to="/shop" as={Link}><li><a>Shop</a></li></NavLink>
   <NavLink to="/contact" as={Link}><li><a>Contact</a></li></NavLink>
-  <NavLink to="/dashboard" as={Link}><li><a>Admin Dashboard</a></li></NavLink>
+  {
+            user && <NavLink to="/dashboard" as={Link}><li><a>Admin Dashboard</a></li></NavLink>
+           }
+  
   
   <div className="avatar online placeholder">
   <div className="bg-error  offer text-neutral-content rounded-full w-12">

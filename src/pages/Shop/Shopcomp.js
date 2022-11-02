@@ -7,7 +7,7 @@ const Shopcomp = () => {
     <div>
       <div className='grid grid-cols-3 gap-4 pl-8 '>
         <div>
-        <div className="card w-96 bg-base-100 shadow-xl image-full">
+        <div className="card shopcrd1 w-96 bg-base-100 shadow-xl image-full">
   <figure><img src="https://kachabazar-store.vercel.app/_next/image?url=%2Fcta%2Fcta-bg-1.jpg&w=1920&q=75" alt="Shoes" /></figure>
   <div className="card-body text-center">
   <h1 className='font-bold'>Taste of</h1>
@@ -20,7 +20,7 @@ const Shopcomp = () => {
 </div>
         </div>
         <div>
-        <div className="card w-96 bg-base-100 shadow-xl image-full">
+        <div className="card shopcrd1 w-96 bg-base-100 shadow-xl image-full">
   <figure><img src="https://kachabazar-store.vercel.app/_next/image?url=%2Fcta%2Fcta-bg-2.jpg&w=1920&q=75" alt="Shoes" /></figure>
   <div className="card-body text-center">
   <h1 className='font-bold'>Taste of</h1>
@@ -33,7 +33,7 @@ const Shopcomp = () => {
 </div>
         </div>
         <div>
-        <div className="card w-96 bg-base-100 shadow-xl image-full">
+        <div className="card shopcrd1 w-96 bg-base-100 shadow-xl image-full">
   <figure><img src="https://kachabazar-store.vercel.app/_next/image?url=%2Fcta%2Fcta-bg-3.jpg&w=1920&q=75" alt="Shoes" /></figure>
   <div className="card-body text-center">
     <h1 className='font-bold'>Taste of</h1>

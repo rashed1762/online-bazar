@@ -4,3 +4,14 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.register{
+    width: 190px;
+    margin-left: 50px;
+}
+.loginbtn{
+    width: 190px;
+    margin-left: 90px;
+}
+.input{
+    border-bottom: 2px solid black;
+}

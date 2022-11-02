@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Pacifico&family=Paytone+One&family=Permanent+Marker&display=swap');
+
 .search{
     width: 920px;
     
@@ -58,3 +60,8 @@
     
 }
 
+.logoinfo{
+    font-family: 'Paytone One', sans-serif;
+    letter-spacing: 2px;
+    color: rgb(248, 194, 113);
+}

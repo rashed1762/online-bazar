@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster&family=Pacifico&family=Paytone+One&family=Permanent+Marker&display=swap');
+
+.aboutbanner{
+    background-image: url(/src/assests/aboutbanner.jpg);
+    height: 300px;
+    background-size: cover;
+}
+.about{
+    font-family: 'Freehand', cursive;
+    font-size: 60px;
+    color: rgb(91, 42, 97);
+}
+.cardabout{
+    background-color: rgb(147, 149, 153);
+}
+.cardabout2{
+    background-color: rgb(147, 149, 153);
+}
+@media screen and (max-width:769px) {
+   .cardabout2{
+    margin-left: 170px;
+   }
+}

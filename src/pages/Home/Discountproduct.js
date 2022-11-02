@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Discountdata from '../../Data/Discountdisplay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 const Discountproduct = () => {
     const [discount,setDiscount]=useState(Discountdata)
@@ -31,7 +32,8 @@ const Discountproduct = () => {
   <button className="btn iconbtn btn btn-outline btn-success"><FontAwesomeIcon className='carticon' icon={faShoppingCart} /></button>
 </div>
 <div className="tooltip" data-tip="SEE DETAILS">
-  <button className="btn iconbtn btn btn-outline btn-secondary"><FontAwesomeIcon className='eyeicon' icon={faEye} /></button>
+<Link to={`/${discountvalue.id}`} ><button className="btn iconbtn btn btn-outline btn-secondary"><FontAwesomeIcon className='eyeicon' icon={faEye} /></button></Link> 
+  
 </div>
 </div>
     

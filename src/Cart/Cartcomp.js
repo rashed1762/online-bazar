@@ -1,85 +1,48 @@
-import React from 'react'
-import {  useCart } from "react-use-cart";
-import {
-    Link
-  } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+
   import './cart.css';
 
 
 const Cartcomp = () => {
-    const {
-        isEmpty,
-        totalUniqueItems,
-        items,
-        totalItems,
-        cartTotal,
-        updateItemQuantity,
-        removeItem,
-        emptyCart,
-      } = useCart();
-      if (isEmpty) return <p>Your cart is empty</p>;
+  const [cartProducts,setCartProducts]=useState([]);
+  const handleDelete=id=>{
+    const url=`http://localhost:4000/cart/${id}`;
+    fetch(url,{
+       method:'DELETE',
+      
+    })
+    .then(res=>res.json())
+    .then(result=>   
+       
+       console.log(result)
+   )};
+  useEffect(()=>{
+    fetch('http://localhost:4000/cart')
+    .then(res=>res.json())
+    .then(data=>setCartProducts(data));
+
+},[]);
+    
   return (
     <div>
-     
-    
-        <div className='container-fluid'>
-        <div className="row">
-            <div className="col-md-12">
-                <h4>cart({totalUniqueItems}) total Items:({totalItems} )</h4>
-                <ul>
-    {items.map((item) => (
-        <div key={item.id} >
-            <div className="row crtbg">
-                <div className="col-md-2">
-                <img className='cart-img' src={item.img} alt="" />
-                
-                </div>
-                <div className="col-md-2 ">
-                <h5 className='title' >{item.title}</h5>
-                </div>
-                <div className="col-md-2">
-                <h4 className='price'>{item.price}</h4>
-                </div>
-                <div className="col-md-2">
-                <h5 className='quantity'>Quantity({item.quantity})</h5>
-                </div>
-                <div className="col-md-2">
-                    <div className='crtbtn'>
-                    <button onClick={() => updateItemQuantity(item.id, item.quantity - 1)} className="btn btn-secondary"> -</button>
+        {
+          cartProducts.map(value=>{
+            const {img,price}=value;
+            console.log(value);
 
-                    <button  onClick={() => updateItemQuantity(item.id, item.quantity + 1)} className="btn btn-secondary"> +</button>
-                    <button  onClick={() => removeItem(item.id)} className="btn btn-secondary"> &times;</button>
-                 
-                
-
-                    </div>
-                
-                </div>
-            </div>
-            <hr />
-
-        </div>
-
-     
-      
-    ))}
-  </ul>
-  
-  
-            </div>
-        </div>
-        <div>
-    {/* <h4 className=''>total price:$ {cartTotal}</h4> */}
-  </div>
-  <div>
-  <button onClick={()=>emptyCart()} className="btn btn-error">clear cart</button>
-   
-  </div>
-        <br />
-    </div>
-
+            return(
+              <div className='grid grid-cols-4 gap-4 mt-9 mt-28'>
+                <img src={img} alt="" />
+                  <p>{price}</p>
+                  <button className="btn btn-primary" onClick={handleDelete}>Delete</button>
+              </div>
+            )
+          })
+        }
     </div>
   )
 }
+    
+        
 
 export default Cartcomp;

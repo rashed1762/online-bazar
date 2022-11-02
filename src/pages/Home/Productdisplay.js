@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Productdata from '../../Data/Productdata';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faEye } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 const Productdisplay = () => {
     const [prodata,setProdata]=useState(Productdata)
@@ -20,11 +21,12 @@ const Productdisplay = () => {
                                 <div className="card procrd w-96 bg-base-100 shadow-xl">
   <figure><img className='proimg' src={img} alt="Shoes" /></figure>
   <div className="card-body">
-    <h2 className="text-1xl font-bold">{title}</h2>
-    <div  className='flex'>
+    <h2 className="text-1xl protitle font-bold">{title}</h2>
+    <div  className='flex prodetails'>
     <p className='text-2xl'>{price}</p>
     <div className="tooltip" data-tip="see details">
-    <FontAwesomeIcon className='details' icon={faEye} />
+    <Link to={`/home/${productvalue.id}`} ><FontAwesomeIcon className='details' icon={faEye} /></Link> 
+    
 </div>
    
     

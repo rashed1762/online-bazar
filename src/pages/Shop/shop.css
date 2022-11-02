@@ -1,8 +1,25 @@
 .productcrd{
     width: 230px;
-    box-shadow: 10px 10px 20px gray;
+    box-shadow: 10px 10px 20px rgb(248, 209, 209);
 }
 .image{
     height: 300px;
     width: 1100px;
 }
+.crdimg{
+    height: 130px;
+}
+@media screen and (max-width:769px) {
+    .shopcrd1{
+        width: 200px;
+    }
+    .productcrd{
+        width: 100px;
+    }
+    .iconbtn{
+        width: 40px;
+    }
+    .shoptitle{
+        font-size: 12px;
+    }
+ }

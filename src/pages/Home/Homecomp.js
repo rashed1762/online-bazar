@@ -12,6 +12,9 @@ import Productdisplay from './Productdisplay';
 import Discountproduct from './Discountproduct';
 import Fotter from '../Shared/Fotter';
 import Slidercard from '../Shared/Slidercard';
+import { Typewriter } from 'react-simple-typewriter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faEye, faFaceGrinHearts, faFaceGrinWink } from '@fortawesome/free-solid-svg-icons'
 
 
 const Homecomp = () => {
@@ -21,13 +24,26 @@ const Homecomp = () => {
       <Carouselcomp></Carouselcomp>
       <div className='offerpart'>
       
-        <h6 className='text-center bg-error rounded-lg text-white'>Latest Super Discount Active Coupon Code</h6>
+        <h6 className='text-center text-2xl bg-error rounded-lg text-white'>We Offer For You 
+        <span className='text-black font-bold'>
+         <Typewriter
+            words={[' Discount Offer', ' Fresh and Organic Product', ' Resonable price', ' Dore STep Delivary system',' Easy Pyment System']}
+            loop={100}
+            cursor
+            cursorStyle='|'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            
+          />
+           </span></h6>
         
           
             <div >
             <div className="card offercrd bg-base-100  shadow-xl image-full">
-  <figure><img src="https://thumbs.dreamstime.com/b/fruits-vegetables-wooden-table-fresh-mix-surface-unpainted-woodgrain-copy-space-above-wide-frame-91657988.jpg" alt="Shoes" /></figure>
+  <figure><img src="https://wallpapersmug.com/download/2048x1152/930962/vegetables-fresh.jpg" alt="Shoes" /></figure>
   <div className="card-body ">
+    <h1 className='text-center mb-5'>Secret Offer Only For you <FontAwesomeIcon className='secretoffer text-warning' icon={faFaceGrinHearts} /> </h1>
   <div className="grid justify-center grid-flow-col gap-5 text-center auto-cols-max">
   <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
     <span className="countdown font-mono text-5xl">
@@ -66,7 +82,7 @@ const Homecomp = () => {
           
             </div>
         </div>
-<section>
+<section className='mt-28'>
   <Category></Category>
 </section>
 
@@ -89,7 +105,7 @@ product
 
 ............................................................................................................. */}
 
-<section>
+<section className='mt-28'>
   <div>
     <Productdisplay></Productdisplay>
   </div>
@@ -101,8 +117,8 @@ product
 <div className='bannerinfo mr-9 ml-9 mt-12'>
 <h4 className='text-2xl'>Organic Products and Food</h4>
    <h2 className='text-3xl font-bold'>Quick Delivery to<span className='text-green-600'> Your Home</span></h2>
-   <p>There are many products you will find our shop, Choose your daily necessary product from our KachaBazar shop and get some special offer. See Our latest discounted products from here and get a special discount.</p>
-   <button className="btn btn-accent mt-3">Download Now</button>
+   <p className='bannerpartp'>There are many products you will find our shop, Choose your daily necessary product from our KachaBazar shop and get some special offer. See Our latest discounted products from here and get a special discount.</p>
+   <button className="btn downloadbtn btn-accent mt-3">Download Now</button>
   
 </div>
 <img src={img3} alt="" />
